@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRISP-ML(Q): Predictor de Salud Mental</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">CRISP-ML(Q) Mental Health</div>
+        <ul class="nav-links">
+            <li><a href="#problema">El Problema</a></li>
+            <li><a href="#metodologia">Metodología</a></li>
+            <li><a href="#diccionario">Datos</a></li>
+            <li><a href="#modelo">Modelo</a></li>
+        </ul>
+        <a href="#comousar" class="cta-nav">Cómo Usar</a>
+    </nav>
+
+    <header class="hero fade-in">
+        <div class="hero-content">
+            <h1>Predictor de Riesgo en Salud Mental</h1>
+            <p>Implementación completa del ciclo de vida de Machine Learning para predecir niveles de riesgo utilizando indicadores temporales de estrés y ansiedad en España.</p>
+            <a href="#comousar" class="btn-primary">Ver Aplicación</a>
+        </div>
+    </header>
+
+    <section id="problema" class="fade-in">
+        <h2>El Problema Social</h2>
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3>+30%</h3>
+                <p>Aumento en búsquedas relacionadas con ansiedad desde 2020.</p>
+            </div>
+            <div class="stat-box">
+                <h3>9%</h3>
+                <p>De la población española afectada crónicamente por el estrés.</p>
+            </div>
+            <div class="stat-box">
+                <h3>1ª</h3>
+                <p>Causa principal de discapacidad a nivel mundial (Depresión).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="metodologia" class="fade-in bg-light">
+        <h2>Metodología CRISP-ML(Q)</h2>
+        <p class="section-subtitle">Cross-Industry Standard Process for Machine Learning with Quality Assurance</p>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>1. Business & Data Understanding</h3>
+                <p>Definición del objetivo de negocio, métricas de éxito (Bajo/Medio/Alto) y análisis del CSV original.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧹</div>
+                <h3>2. Data Preparation (ETL)</h3>
+                <p>Tratamiento de nulos, duplicados, outliers mediante IQR y estandarización de features.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏗️</div>
+                <h3>3. Modeling</h3>
+                <p>Entrenamiento de algoritmos (LightGBM, Random Forest, Regresión Logística) aplicando SMOTE.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">✅</div>
+                <h3>4. Evaluation</h3>
+                <p>Validación de métricas (Accuracy, AUC-ROC, F1-Score) y visualización de Curva ROC.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>5. Deployment</h3>
+                <p>Creación de dashboard interactivo en Streamlit consumiendo el modelo exportado en Joblib.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👁️</div>
+                <h3>6. Monitoring & Maintenance</h3>
+                <p>Documentación técnica para asegurar el seguimiento del data drift en el tiempo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="diccionario" class="fade-in">
+        <h2>Diccionario de Datos</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Columna</th>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>date</td><td>Date</td><td>Fecha de recolección de los datos (mensual).</td></tr>
+                    <tr><td>anxiety</td><td>Numérico</td><td>Índice de búsqueda de ansiedad (Google Trends).</td></tr>
+                    <tr><td>depression</td><td>Numérico</td><td>Índice de búsqueda de depresión.</td></tr>
+                    <tr><td>online_therapy</td><td>Numérico</td><td>Índice de búsqueda de terapia online.</td></tr>
+                    <tr><td>panic_attacks</td><td>Numérico</td><td>Índice de búsqueda de ataques de pánico.</td></tr>
+                    <tr><td>stress</td><td>Numérico</td><td>Índice de búsqueda de estrés.</td></tr>
+                    <tr><td>RISK_LEVEL</td><td>Categórico</td><td>Variable objetivo derivada: Riesgo Bajo, Medio o Alto.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="modelo" class="fade-in bg-light">
+        <h2>Métricas del Mejor Modelo (LightGBM)</h2>
+        <div class="metrics-container">
+            <div class="metric-card">
+                <h4>Accuracy</h4>
+                <div class="metric-value">85.2%</div>
+            </div>
+            <div class="metric-card">
+                <h4>F1-Score (Macro)</h4>
+                <div class="metric-value">84.1%</div>
+            </div>
+            <div class="metric-card">
+                <h4>AUC-ROC</h4>
+                <div class="metric-value">0.92</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comousar" class="fade-in">
+        <h2>Cómo Ejecutar el Proyecto</h2>
+        <ol class="steps-list">
+            <li><span>1</span> <strong>Instalar dependencias:</strong> <code>pip install -r requirements.txt</code></li>
+            <li><span>2</span> <strong>Ejecutar ETL:</strong> Abre y ejecuta <code>01_ETL.ipynb</code> para generar <code>cleaned_data.csv</code>.</li>
+            <li><span>3</span> <strong>Explorar Datos:</strong> Revisa <code>02_EDA.ipynb</code>.</li>
+            <li><span>4</span> <strong>Entrenar Modelo:</strong> Ejecuta <code>03_Modeling.ipynb</code> para generar <code>modelo_salud_mental.pkl</code>.</li>
+            <li><span>5</span> <strong>Iniciar App:</strong> Ejecuta en la terminal <code>streamlit run app.py</code></li>
+        </ol>
+    </section>
+
+    <footer>
+        <p>© 2026 Proyecto CRISP-ML(Q) - Machine Learning aplicado a la Salud Mental</p>
+        <p class="footer-small">Este proyecto tiene fines académicos. No reemplaza el consejo médico profesional.</p>
+    </footer>
+
+    <script>
+        // Intersection Observer para animaciones de fade-in al hacer scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('appear');
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
